@@ -1,0 +1,93 @@
+{
+  "kind": "singleType",
+  "collectionName": "properties",
+  "info": {
+    "name": "property",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "property_local_cost": {
+      "type": "float"
+    },
+    "property_taxes": {
+      "type": "float"
+    },
+    "property_local_currency": {
+      "model": "currency"
+    },
+    "property_international_currency": {
+      "model": "currency"
+    },
+    "property_crypto_currency": {
+      "model": "currency"
+    },
+    "beds": {
+      "type": "integer"
+    },
+    "bathrooms": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Address_1": {
+      "type": "string"
+    },
+    "Address_2": {
+      "type": "string"
+    },
+    "Address_3": {
+      "type": "string"
+    },
+    "Address_4": {
+      "type": "string"
+    },
+    "Address_5": {
+      "type": "string"
+    },
+    "Address_6": {
+      "type": "string"
+    },
+    "rental_url": {
+      "type": "string"
+    },
+    "suggested_rental_price": {
+      "type": "integer"
+    },
+    "property_international_cost": {
+      "type": "float"
+    },
+    "rental_agreement": {
+      "model": "rental-agreement"
+    },
+    "currently_rented": {
+      "type": "enumeration",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "property_token": {
+      "model": "property-contract"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rental_payments",
+  "info": {
+    "name": "rental_payment",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "amount": {
+      "type": "float"
+    },
+    "payment_date": {
+      "type": "date"
+    },
+    "rental_agreement": {
+      "via": "rental_payments",
+      "model": "rental-agreement"
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "payment_received": {
+      "type": "enumeration",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    }
+  }
+}

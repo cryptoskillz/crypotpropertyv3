@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rental_agreements",
+  "info": {
+    "name": "rental_agreement",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "rental_amount": {
+      "type": "float"
+    },
+    "contract": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "start_date": {
+      "type": "date"
+    },
+    "end_date": {
+      "type": "date"
+    },
+    "agent": {
+      "model": "agent"
+    },
+    "deposit": {
+      "type": "float"
+    },
+    "tenants": {
+      "collection": "tenant",
+      "via": "rental_agreement"
+    },
+    "rental_currency": {
+      "model": "currency",
+      "via": "rental_agreement"
+    },
+    "rental_payments": {
+      "collection": "rental-payment",
+      "via": "rental_agreement"
+    },
+    "rental_costs": {
+      "via": "rental_agreement",
+      "collection": "rental-cost"
+    }
+  }
+}

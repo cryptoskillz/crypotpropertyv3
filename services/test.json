@@ -1,0 +1,239 @@
+{
+  propertyName: '1 bedroom condo to rent at Dcondo SIGN',
+  propertyCost: 1800000,
+  contract: {
+    id: 1,
+    token_name: 'dcondo001Token',
+    issuer: 'TFvzmpCYumneehXj963corUxYi7e2YaWXF',
+    contract_address: 'https://shasta.tronscan.org/#/token/1000690',
+    total_supply: 1800000,
+    description: null,
+    ss: null,
+    published_at: '2021-04-02T15:37:43.350Z',
+    created_at: '2021-04-02T15:37:36.013Z',
+    updated_at: '2021-04-11T07:52:59.357Z',
+    proptery_owners: [
+      {
+        id: 1,
+        name: 'Chris McCreadie',
+        email: 'chrisjmccreadie@protonmail.com',
+        token_address: 'https://shasta.tronscan.org/#/address/TFvzmpCYumneehXj963corUxYi7e2YaWXF',
+        token_amount: 1799000,
+        property_token: 1,
+        published_at: '2021-04-02T15:41:18.536Z',
+        created_at: '2021-04-02T15:41:16.511Z',
+        updated_at: '2021-04-11T07:52:59.347Z',
+        legal_contracts: []
+      },
+      {
+        id: 2,
+        name: 'test 2',
+        email: 'test2@test2.com',
+        token_address: 'https://shasta.tronscan.org/#/address/TQhDkkWRXXL9Sh5EQ1BnR3DvPtukuaH5mE',
+        token_amount: 1000,
+        property_token: 1,
+        published_at: '2021-04-02T15:42:09.215Z',
+        created_at: '2021-04-02T15:42:07.128Z',
+        updated_at: '2021-04-11T07:52:59.347Z',
+        legal_contracts: []
+      }
+    ]
+  },
+  agreement: {
+    id: 1,
+    name: 'dcondo1',
+    rental_amount: 6700,
+    start_date: '2021-04-02',
+    end_date: '2022-04-02',
+    agent: {
+      id: 2,
+      name: 'Perfect Homes',
+      email: null,
+      url: 'https://perfecthomes.co.th/',
+      contract: null,
+      deposit: null,
+      amount: null,
+      published_at: '2021-04-02T04:14:38.942Z',
+      created_at: '2021-04-02T04:14:36.866Z',
+      updated_at: '2021-04-02T04:14:38.962Z'
+    },
+    deposit: 6700,
+    rental_currency: {
+      id: 3,
+      currency_type: '฿',
+      rental_agreement: 1,
+      published_at: '2021-03-26T09:15:45.836Z',
+      created_at: '2021-03-26T09:15:43.474Z',
+      updated_at: '2021-04-09T12:55:15.434Z'
+    },
+    published_at: '2021-04-02T04:26:32.969Z',
+    created_at: '2021-04-02T04:26:26.347Z',
+    updated_at: '2021-04-09T12:55:15.449Z',
+    contract: null,
+    tenants: [
+      {
+        id: 1,
+        name: 'ten 1',
+        phone: null,
+        email: null,
+        rental_agreement: 1,
+        published_at: '2021-04-02T05:23:27.057Z',
+        created_at: '2021-04-02T05:23:24.982Z',
+        updated_at: '2021-04-09T12:55:15.409Z'
+      },
+      {
+        id: 2,
+        name: 'ten 2',
+        phone: null,
+        email: null,
+        rental_agreement: 1,
+        published_at: '2021-04-02T05:24:25.911Z',
+        created_at: '2021-04-02T05:23:42.109Z',
+        updated_at: '2021-04-09T12:55:15.409Z'
+      }
+    ],
+    rental_payments: [
+      {
+        id: 1,
+        amount: 6700,
+        payment_date: '2021-04-02',
+        rental_agreement: 1,
+        currency: 3,
+        payment_received: 'yes',
+        published_at: '2021-04-09T11:31:00.316Z',
+        created_at: '2021-04-03T18:57:31.701Z',
+        updated_at: '2021-04-09T12:55:15.409Z'
+      }
+    ],
+    rental_costs: [
+      {
+        id: 1,
+        cost: 'Management',
+        description: 'Management',
+        date: '2021-04-02',
+        amount: 500,
+        rental_agreement: 1,
+        currency: 3,
+        published_at: '2021-04-09T11:11:32.095Z',
+        created_at: '2021-04-09T11:10:42.647Z',
+        updated_at: '2021-04-09T12:55:15.407Z'
+      },
+      {
+        id: 2,
+        cost: 'Finders Fee',
+        description: 'Finders Fee',
+        date: '2021-04-02',
+        amount: 6700,
+        rental_agreement: 1,
+        currency: 3,
+        published_at: '2021-04-09T11:12:00.815Z',
+        created_at: '2021-04-09T11:11:58.745Z',
+        updated_at: '2021-04-09T12:55:15.407Z'
+      },
+      {
+        id: 3,
+        cost: 'Immigration',
+        description: 'Immigration',
+        date: '2021-04-02',
+        amount: 500,
+        rental_agreement: 1,
+        currency: 3,
+        published_at: '2021-04-09T11:12:23.812Z',
+        created_at: '2021-04-09T11:12:21.939Z',
+        updated_at: '2021-04-09T12:55:15.407Z'
+      },
+      {
+        id: 4,
+        cost: 'Copy mailbox key',
+        description: 'Copy mailbox key',
+        date: '2021-04-02',
+        amount: 60,
+        rental_agreement: 1,
+        currency: 3,
+        published_at: '2021-04-09T11:12:51.474Z',
+        created_at: '2021-04-09T11:12:48.617Z',
+        updated_at: '2021-04-09T12:55:15.407Z'
+      },
+      {
+        id: 5,
+        cost: 'New 2 pillows',
+        description: 'New 2 pillows',
+        date: '2021-04-02',
+        amount: 330,
+        rental_agreement: 1,
+        currency: 3,
+        published_at: '2021-04-09T11:13:25.286Z',
+        created_at: '2021-04-09T11:13:16.162Z',
+        updated_at: '2021-04-09T12:55:15.407Z'
+      },
+      {
+        id: 6,
+        cost: 'New washing machine+Electric hop+Micowave',
+        description: 'New washing machine+Electric hop+Micowave',
+        date: '2021-04-02',
+        amount: 1590,
+        rental_agreement: 1,
+        currency: 3,
+        published_at: '2021-04-09T11:13:52.620Z',
+        created_at: '2021-04-09T11:13:44.952Z',
+        updated_at: '2021-04-09T12:55:15.407Z'
+      },
+      {
+        id: 7,
+        cost: 'Service charge 10%',
+        description: 'Service charge 10%',
+        date: '2021-04-02',
+        amount: 1584,
+        rental_agreement: 1,
+        currency: 3,
+        published_at: '2021-04-09T11:14:15.030Z',
+        created_at: '2021-04-09T11:14:10.883Z',
+        updated_at: '2021-04-09T12:55:15.407Z'
+      }
+    ]
+  },
+  payments: [
+    {
+      id: 1,
+      name: 'april2021',
+      amount: 100,
+      currency: {
+        id: 1,
+        currency_type: '$',
+        rental_agreement: null,
+        published_at: '2021-03-26T09:15:20.682Z',
+        created_at: '2021-03-26T09:15:15.096Z',
+        updated_at: '2021-03-26T09:15:20.702Z'
+      },
+      proptery_owner: {
+        id: 1,
+        name: 'Chris McCreadie',
+        email: 'chrisjmccreadie@protonmail.com',
+        token_address: 'https://shasta.tronscan.org/#/address/TFvzmpCYumneehXj963corUxYi7e2YaWXF',
+        token_amount: 1799000,
+        property_token: 1,
+        published_at: '2021-04-02T15:41:18.536Z',
+        created_at: '2021-04-02T15:41:16.511Z',
+        updated_at: '2021-04-11T07:52:59.347Z',
+        legal_contracts: []
+      },
+      rental_agreement: {
+        id: 1,
+        name: 'dcondo1',
+        rental_amount: 6700,
+        start_date: '2021-04-02',
+        end_date: '2022-04-02',
+        agent: 2,
+        deposit: 6700,
+        rental_currency: 3,
+        published_at: '2021-04-02T04:26:32.969Z',
+        created_at: '2021-04-02T04:26:26.347Z',
+        updated_at: '2021-04-09T12:55:15.449Z',
+        contract: null
+      },
+      published_at: '2021-04-11T08:36:32.570Z',
+      created_at: '2021-04-11T08:35:15.412Z',
+      updated_at: '2021-04-11T08:36:32.608Z'
+    }
+  ]
+}

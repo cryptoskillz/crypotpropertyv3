@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/property-contracts",
+      "handler": "property-contract.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/property-contracts/count",
+      "handler": "property-contract.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/property-contracts/:id",
+      "handler": "property-contract.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/property-contracts",
+      "handler": "property-contract.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/property-contracts/:id",
+      "handler": "property-contract.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/property-contracts/:id",
+      "handler": "property-contract.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

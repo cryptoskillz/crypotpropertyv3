@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/rental-costs",
+      "handler": "rental-cost.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rental-costs/count",
+      "handler": "rental-cost.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rental-costs/:id",
+      "handler": "rental-cost.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/rental-costs",
+      "handler": "rental-cost.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/rental-costs/:id",
+      "handler": "rental-cost.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/rental-costs/:id",
+      "handler": "rental-cost.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

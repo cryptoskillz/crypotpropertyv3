@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/property-owner-payments",
+      "handler": "property-owner-payments.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/property-owner-payments/count",
+      "handler": "property-owner-payments.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/property-owner-payments/:id",
+      "handler": "property-owner-payments.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/property-owner-payments",
+      "handler": "property-owner-payments.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/property-owner-payments/:id",
+      "handler": "property-owner-payments.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/property-owner-payments/:id",
+      "handler": "property-owner-payments.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

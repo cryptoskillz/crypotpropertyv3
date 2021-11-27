@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "property_contracts",
+  "info": {
+    "name": "Property_token",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "token_name": {
+      "type": "string"
+    },
+    "issuer": {
+      "type": "string"
+    },
+    "contract_address": {
+      "type": "string"
+    },
+    "total_supply": {
+      "type": "float"
+    },
+    "proptery_owners": {
+      "collection": "proptery-owners",
+      "via": "property_token"
+    },
+    "description": {
+      "type": "text"
+    },
+    "ss": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/rental-payments",
+      "handler": "rental-payment.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rental-payments/count",
+      "handler": "rental-payment.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rental-payments/:id",
+      "handler": "rental-payment.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/rental-payments",
+      "handler": "rental-payment.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/rental-payments/:id",
+      "handler": "rental-payment.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/rental-payments/:id",
+      "handler": "rental-payment.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

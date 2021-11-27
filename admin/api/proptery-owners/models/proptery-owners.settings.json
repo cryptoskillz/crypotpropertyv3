@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "proptery_owners",
+  "info": {
+    "name": "proptery_owners",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "password": {
+      "type": "password"
+    },
+    "token_address": {
+      "type": "string"
+    },
+    "token_amount": {
+      "type": "float"
+    },
+    "property_token": {
+      "via": "proptery_owners",
+      "model": "property-contract"
+    },
+    "legal_contracts": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

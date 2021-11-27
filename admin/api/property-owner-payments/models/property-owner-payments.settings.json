@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "property_owner_payments",
+  "info": {
+    "name": "property_owner_payments",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "float"
+    },
+    "currency": {
+      "model": "currency"
+    },
+    "proptery_owner": {
+      "model": "proptery-owners"
+    },
+    "rental_agreement": {
+      "model": "rental-agreement"
+    },
+    "datepaid": {
+      "type": "date"
+    }
+  }
+}

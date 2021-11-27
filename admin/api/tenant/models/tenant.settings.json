@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tenants",
+  "info": {
+    "name": "Tenant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "rental_agreement": {
+      "via": "tenants",
+      "model": "rental-agreement"
+    }
+  }
+}

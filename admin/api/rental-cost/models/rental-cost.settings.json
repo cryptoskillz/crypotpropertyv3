@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rental_costs",
+  "info": {
+    "name": "Rental_cost",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "date": {
+      "type": "date"
+    },
+    "amount": {
+      "type": "float"
+    },
+    "rental_agreement": {
+      "model": "rental-agreement",
+      "via": "rental_costs"
+    },
+    "currency": {
+      "model": "currency"
+    }
+  }
+}

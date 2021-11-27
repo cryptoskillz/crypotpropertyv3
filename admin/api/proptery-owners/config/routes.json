@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/proptery-owners",
+      "handler": "proptery-owners.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/proptery-owners/count",
+      "handler": "proptery-owners.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/proptery-owners/:id",
+      "handler": "proptery-owners.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/proptery-owners",
+      "handler": "proptery-owners.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/proptery-owners/:id",
+      "handler": "proptery-owners.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/proptery-owners/:id",
+      "handler": "proptery-owners.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

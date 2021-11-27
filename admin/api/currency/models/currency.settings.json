@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "currencies",
+  "info": {
+    "name": "currency",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "currency_type": {
+      "type": "string"
+    },
+    "rental_agreement": {
+      "via": "rental_currency",
+      "model": "rental-agreement"
+    }
+  }
+}

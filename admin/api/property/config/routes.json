@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/property",
+      "handler": "property.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/property",
+      "handler": "property.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/property",
+      "handler": "property.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

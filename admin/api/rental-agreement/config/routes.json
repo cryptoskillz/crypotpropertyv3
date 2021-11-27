@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/rental-agreements",
+      "handler": "rental-agreement.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rental-agreements/count",
+      "handler": "rental-agreement.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/rental-agreements/:id",
+      "handler": "rental-agreement.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/rental-agreements",
+      "handler": "rental-agreement.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/rental-agreements/:id",
+      "handler": "rental-agreement.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/rental-agreements/:id",
+      "handler": "rental-agreement.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

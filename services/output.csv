@@ -1,0 +1,60 @@
+name,1 bedroom condo to rent at Dcondo SIGN 
+cost,1800000  
+taxes,54000  
+currency,฿  
+currently rented,yes  
+
+
+Rental Agreements
+id,name,amount,deposit,start date,end date,active
+1,dcondo1,6700,13400,2021-04-04,2022-04-04,yes
+
+
+Owners
+name,email,tokens,share %
+
+
+Paid In
+payment type,description,amount,date,currency
+rent payment,rent,6700,2021-04-02,฿
+rent payment,rent,6700,2021-05-05,฿
+rent payment,rent,6700,2021-06-06,฿
+rent payment,rent,6700,2021-07-05,฿
+rent payment,rent,6700,2021-08-05,฿
+rent payment,rent,6700,2021-09-05,฿
+rent payment,rent,6700,2021-10-05,฿
+rent payment,rent,6700,2021-11-05,฿
+
+
+Paid Out
+payment type,description,amount,date,currency
+cost,Management,500,2021-06-06,฿
+cost,Management,500,2021-07-05,฿
+cost,New keycard,200,2021-06-06,฿
+cost,Management,500,2021-10-05,฿
+cost,Finders Fee,6700,2021-04-02,฿
+cost,Tile floor repair,1000,2021-07-05,฿
+cost,A circuit board digital door lock,3000,2021-07-05,฿
+cost,Service Charge 5%,205,2021-08-07,฿
+cost,Management,500,2021-08-07,฿
+cost,Management,500,2021-04-02,฿
+cost,Management,500,2021-05-05,฿
+cost,Service charge 5%,205,2021-05-05,฿
+cost,New washing machine+Electric hop+Micowave,15090,2021-04-02,฿
+cost,Management,500,2021-11-05,฿
+cost,Coomon Area Apr - Jun 2021,4091,2021-05-05,฿
+cost,Service Charge 10%,400,2021-07-05,฿
+cost,Aircon clean 1 Unit,700,2021-05-05,฿
+cost,Cleaning Room,500,2021-05-05,฿
+cost,Coomon Area Jul-Sep 2021,4091,2021-08-07,฿
+cost,Management,500,2021-09-05,฿
+cost,New 2 pillows,330,2021-04-02,฿
+cost,Service Charge 10%,20,2021-06-06,฿
+cost,Copy mailbox key,60,2021-04-02,฿
+
+
+Distributions
+payment to,description,amount,date,currency
+
+
+Balance,13008
