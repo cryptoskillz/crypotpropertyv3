@@ -15,13 +15,13 @@ getData = async () => {
 
 module.exports = async () => {
   //set an array 
-  let properties = []
+  let result = []
   //call the get get Data fuction
-  if (properties.length === 0) properties =  await getData();
+  if (result.length === 0) result =  await getData();
   //console.log(properties[0].id)
 
   return {
-    propertiesArray: properties
+    dataArray: result
   }
 
 }
