@@ -10,6 +10,7 @@ getData = async () => {
   var res = await superagent.get(`${process.env.STRAPIAPI}property-details/`).query({});
   //console.log(res.body)
   return(res.body)
+  
 }
 
 
