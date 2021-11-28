@@ -32,7 +32,16 @@ getData = async () => {
   var res3 = await superagent.get(`${process.env.STRAPIAPI}rental-agreements/${res.body[0].rental_agreement.id}/`).query({});
   //console.log(res3.body)
   res.body[0]._rental_agreements = res3.body
-  console.log(res.body[0]._rental_agreements)
+  //console.log(res.body[0]._rental_agreements)
+
+
+  //owner payments
+  console.log(`${process.env.STRAPIAPI}property-owner-payments/?rental_agreement=${res.body[0].rental_agreement.id}`)
+  var res4 = await superagent.get(`${process.env.STRAPIAPI}property-owner-payments/?rental_agreement=${res.body[0].rental_agreement.id}`).query({});
+  //console.log(res4.body)
+  res.body[0]._owner_payments = res4.body
+  //console.log(res.body[0]._owner_payments)
+
   
 
 

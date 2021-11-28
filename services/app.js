@@ -11,7 +11,7 @@ let getProperties = () => {
 
   add total for costs and rent
   make it work with more than property
-  
+  update curency we may not need to make it its own td
 
 
   */

@@ -60,27 +60,40 @@ Rental Agreements
 
 <table>
   <tr>
-  <td>Name</td>
-  <td>Email</td>
-  <td>Token</td>
-  <td>Share</td>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Token</td>
+    <td>Share</td>
   </tr>
 {% for item in contentarray._proptery_owners %}
 
   <tr>
-  <td>{{ item.name }}</td>
-  <td>{{ item.email}}</td>
-  <td>{{ item.token_amount }}</td>
-  <td>{{ item.token_amount / contentarray.Property_local_cost * 100}}</td>
-</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.email}}</td>
+    <td>{{ item.token_amount }}</td>
+    <td>{{ item.token_amount / contentarray.Property_local_cost * 100}}</td>
   </tr>
 {% endfor %}
-
-<br>
-Paid in
+</table>
 <br>
 <br>
 <table>
+  <tr>
+    <td>Paid In</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
   <tr>
   <td>Type</td>
   <td>Description</td>
@@ -89,20 +102,21 @@ Paid in
   <td>Currency</td>
   <td><Total/td>
 </tr>
-{%  set total = 0 %}
+{%  set totalrent = 0 %}
 {% for item in contentarray._rental_agreements.rental_payments %}
 
   <tr>
     <td>Rental Payment</td>
     <td>rent</td>
     <td>{{ item.amount}}</td>
-    <td>{{ item.payment_date }}</td>
+    <td>{{ item.payment_date }}
     {%  if item.currency == "3" %}
       ฿
     {% endif %}
+    </td>
     <td></td>
   </tr>
-  {% set total = total+item.amount %}
+  {% set totalrent = totalrent+item.amount %}
 
 {% endfor %}
 
@@ -112,17 +126,30 @@ Paid in
     <td></td>
     <td></td>
     <td></td>
-    <td>{{ total }}</td>
+    <td>{{ totalrent }}</td>
   </tr>
 
 
-</table>
 
-<br>
-Paid Out
-<br>
-<br>
-<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>Paid Out</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+
   <tr>
   <td>Type</td>
   <td>Description</td>
@@ -131,7 +158,7 @@ Paid Out
   <td>Currency</td>
   <td><Total/td>
 </tr>
-{%  set total = 0 %}
+{%  set totalcost = 0 %}
 {% for item in contentarray._rental_agreements.rental_costs %}
 
   <tr>
@@ -146,7 +173,7 @@ Paid Out
     </td>
     <td></td>
   </tr>
-  {% set total = total+item.amount %}
+  {% set totalcost = totalcost+item.amount %}
 
 {% endfor %}
 
@@ -156,8 +183,100 @@ Paid Out
     <td></td>
     <td></td>
     <td></td>
-    <td>{{ total }}</td>
+    <td>{{ totalcost }}</td>
   </tr>
+
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total Profit</td>
+    <td>{{  totalrent - totalcost }}</td>
+  </tr>
+
+
+  <tr>
+    <td>Distributions</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
+
+  <tr>
+    <td>Payment to</td>
+    <td>Description</td>
+    <td>Amount</td>
+    <td>Date</td>
+    <td>Currency</td>
+    <td></td>
+  </tr>
+  {% set totalcost =  totalrent - totalcost %}
+  {% set totaldist =  0 %}
+
+  {% for item in contentarray._owner_payments %}
+      {% set totalcost = totalcost-item.amount %}
+      {% set totaldist = totaldist+item.amount %}
+
+  <tr>
+    <td>{{item.proptery_owner.name}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.amount}}</td>
+    <td>{{item.datepaid}}</td>
+    <td>{{item.currency.currency_type}}</td>
+    <td></td>
+  </tr>
+
+  {%  endfor %}
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td> </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total Distributions </td>
+    <td>{{ totaldist }}</td>
+  </tr>
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td> </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total Left </td>
+    <td>{{ totalcost }}</td>
+  </tr>
+
+
+
 
 
 </table>
