@@ -5,8 +5,159 @@ pagination:
   data: api.dataArray
   size: 1
   alias: contentarray
-permalink: /property/dcondo/
+permalink: /property/{{contentarray.Name | slug}}/
 pageType: contentdetail
 menuName: content
 ---
-{{contentarray.Name}}
+<table>
+<tr>
+  <td>Name</td>
+  <td>{{contentarray.Name}}</td>
+</tr>
+<tr>
+<td>Cost</td>
+  <td>{{contentarray.Property_local_cost}}</td>
+</tr>
+<tr>
+<td>Taxes</td>
+  <td>{{contentarray.Property_taxes}}</td>
+</tr>
+<tr>
+<td>Currency</td>
+  <td>{{contentarray.property_local_currency.currency_type}}</td>
+</tr>
+</table>
+<br>
+Rental Agreements
+<br>
+<br>
+<table>
+  <tr>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ID</td>
+    <td>Name</td>
+    <td>Amount</td>
+    <td>Deposit</td>
+    <td>Start Date</td>
+    <td>End Date</td>
+    <td>Active</td>
+  </tr>
+  <tr>
+    <td>{{contentarray.rental_agreement.id}}</td>
+    <td>{{contentarray.rental_agreement.name}}</td>
+    <td>{{contentarray.rental_agreement.rental_amount}}</td>
+    <td>{{contentarray.rental_agreement.deposit}}</td>
+    <td>{{contentarray.rental_agreement.start_date}}</td>
+    <td>{{contentarray.rental_agreement.end_date}}</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<br>
+<br>
+
+<table>
+  <tr>
+  <td>Name</td>
+  <td>Email</td>
+  <td>Token</td>
+  <td>Share</td>
+  </tr>
+{% for item in contentarray._proptery_owners %}
+
+  <tr>
+  <td>{{ item.name }}</td>
+  <td>{{ item.email}}</td>
+  <td>{{ item.token_amount }}</td>
+  <td>{{ item.token_amount / contentarray.Property_local_cost * 100}}</td>
+</td>
+  </tr>
+{% endfor %}
+
+<br>
+Paid in
+<br>
+<br>
+<table>
+  <tr>
+  <td>Type</td>
+  <td>Description</td>
+  <td>Amount</td>
+  <td>Date</td>
+  <td>Currency</td>
+  <td><Total/td>
+</tr>
+{%  set total = 0 %}
+{% for item in contentarray._rental_agreements.rental_payments %}
+
+  <tr>
+    <td>Rental Payment</td>
+    <td>rent</td>
+    <td>{{ item.amount}}</td>
+    <td>{{ item.payment_date }}</td>
+    {%  if item.currency == "3" %}
+      ฿
+    {% endif %}
+    <td></td>
+  </tr>
+  {% set total = total+item.amount %}
+
+{% endfor %}
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{ total }}</td>
+  </tr>
+
+
+</table>
+
+<br>
+Paid Out
+<br>
+<br>
+<table>
+  <tr>
+  <td>Type</td>
+  <td>Description</td>
+  <td>Amount</td>
+  <td>Date</td>
+  <td>Currency</td>
+  <td><Total/td>
+</tr>
+{%  set total = 0 %}
+{% for item in contentarray._rental_agreements.rental_costs %}
+
+  <tr>
+    <td>Rental Cost</td>
+    <td>{{ item.description}}</td>
+    <td>{{ item.amount}}</td>
+    <td>{{ item.date }}</td>
+    <td>
+    {%  if item.currency == "3" %}
+      ฿
+    {% endif %}
+    </td>
+    <td></td>
+  </tr>
+  {% set total = total+item.amount %}
+
+{% endfor %}
+
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>{{ total }}</td>
+  </tr>
+
+
+</table>

@@ -1,4 +1,6 @@
 ---
 layout: layout.njk
 ---
-put your content here chief.  
+{% for item in api.dataArray %}
+	<a href="property/{{ item.Name | slug }}">{{ item.Name }}</a>
+ {%  endfor %}
