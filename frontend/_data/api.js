@@ -42,8 +42,7 @@ getData = async () => {
   res.body[0]._owner_payments = res4.body
   //console.log(res.body[0]._owner_payments)
 
-  
-
+  //console.dir(res.body[0].images)
 
   return(res.body)
  
