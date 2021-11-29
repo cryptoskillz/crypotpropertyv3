@@ -10,197 +10,327 @@ pageType: contentdetail
 menuName: content
 ---
 <div class="row">
-  <table class="table">
-  <tr>
-    <td>Name</td>
-    <td>{{contentarray.Name}}</td>
-  </tr>
-  <tr>
-  <td>Cost</td>
-    <td>{{contentarray.Property_local_cost}}</td>
-  </tr>
-  <tr>
-  <td>Taxes</td>
-    <td>{{contentarray.Property_taxes}}</td>
-  </tr>
-  <tr>
-  <td>Currency</td>
-    <td>{{contentarray.property_local_currency.currency_type}}</td>
-  </tr>
-  </table>
+    <table class="table">
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                {{contentarray.Name}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Cost
+            </td>
+            <td>
+                {{contentarray.Property_local_cost}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Taxes
+            </td>
+            <td>
+                {{contentarray.Property_taxes}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Currency
+            </td>
+            <td>
+                {{contentarray.property_local_currency.currency_type}}
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="row">
+    <h1>
+        Rental Agreements
+    </h1>
+    <table class="table" id="rentaltable">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Deposit
+                </th>
+                <th>
+                    Start Date
+                </th>
+                <th>
+                    End Date
+                </th>
+                <th>
+                    Active
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{contentarray.rental_agreement.id}}
+                </td>
+                <td>
+                    {{contentarray.rental_agreement.name}}
+                </td>
+                <td>
+                    {{contentarray.rental_agreement.rental_amount}}
+                </td>
+                <td>
+                    {{contentarray.rental_agreement.deposit}}
+                </td>
+                <td>
+                    {{contentarray.rental_agreement.start_date}}
+                </td>
+                <td>
+                    {{contentarray.rental_agreement.end_date}}
+                </td>
+                <td>
+                    Yes
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <h1>
+        Owners
+    </h1>
+    <table class="table" id="ownerstable">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Token
+                </th>
+                <th>
+                    Share
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in contentarray._proptery_owners %}
+            <tr>
+                <td>
+                    {{ item.name }}
+                </td>
+                <td>
+                    {{ item.email}}
+                </td>
+                <td>
+                    {{ item.token_amount }}
+                </td>
+                <td>
+                    {{ item.token_amount / contentarray.Property_local_cost * 100}}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <h1>
+        Paid In
+    </h1>
+    <table class="table" id="paidintable">
+        <thead>
+            <tr>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Date
+                </th>
+            </tr>
+        </thead>
+        {%  set totalrent = 0 %}
+{% for item in contentarray._rental_agreements.rental_payments %}
+        <tbody>
+            <tr>
+                <td>
+                    Rental Payment
+                </td>
+                <td>
+                    rent
+                </td>
+                <td>
+                    {{ item.payment_date }}
+                </td>
+                <td>
+                    {%  if item.currency == "3" %}
+     {{ item.amount | currencyConvertBAHT}}
+    {% endif %}
+                </td>
+            </tr>
+            {% set totalrent = totalrent+item.amount %}
+
+{% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right">
+                    Total:
+                </th>
+                <th>
+                    {{ totalrent | currencyConvertBAHT }}
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="row">
+    <h1>
+        Paid out
+    </h1>
+    <table class="table" id="paidouttable">
+        <thead>
+            <tr>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Date
+                </th>
+            </tr>
+        </thead>
+        {%  set totalcost = 0 %}
+        <tbody>
+            {% for item in contentarray._rental_agreements.rental_costs %}
+            <tr>
+                <td>
+                    Rental Cost
+                </td>
+                <td>
+                    {{ item.description}}
+                </td>
+                <td>
+                    {{ item.date }}
+                </td>
+                <td>
+                    {% if item.currency == "3" %}
+                      {{ item.amount | currencyConvertBAHT}}
+                    {% endif %}
+                </td>
+
+            </tr>
+            {% set totalcost = totalcost+item.amount %}
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right">
+                    Total:
+                </th>
+                <th>
+                    {{ totalcost | currencyConvertBAHT }}
+                </th>
+            </tr>
+            <tr>
+                 <th colspan="3" style="text-align:right">
+                    Total Left:
+                </th>
+                <th>
+                    {%  set totalr =  totalrent - totalcost %}
+                    {{ totalr | currencyConvertBAHT }}
+                
+                </th>
+            </tr>
+        </tfoot>
+    </table>
 </div>
 
-<h1>Rental Agreements</h1>
+<div class="row">
+    <h1>
+        Distributions
+    </h1>
+    <table class="table" id="disttable">
+      <thead>
+        <tr>
+            <th>
+                Payment to
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Amount
+            </th>
 
-<table class="table">
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Amount</th>
-    <th>Deposit</th>
-    <th>Start Date</th>
-    <th>End Date</th>
-    <th>Active</th>
-  </tr>
-  <tr>
-    <td>{{contentarray.rental_agreement.id}}</td>
-    <td>{{contentarray.rental_agreement.name}}</td>
-    <td>{{contentarray.rental_agreement.rental_amount}}</td>
-    <td>{{contentarray.rental_agreement.deposit}}</td>
-    <td>{{contentarray.rental_agreement.start_date}}</td>
-    <td>{{contentarray.rental_agreement.end_date}}</td>
-    <td>Yes</td>
-  </tr>
-</table>
+        </tr>
+        </thead>
+        <tbody>
+        {% set totalcost =  totalrent - totalcost %}
+        {% set totaldist =  0 %}
 
-<h1>Owners</h1>
+        {% for item in contentarray._owner_payments %}
+          {% set totalcost = totalcost-item.amount %}
+          {% set totaldist = totaldist+item.amount %}
+        <tr>
+            <td>
+                {{item.proptery_owner.name}}
+            </td>
+            <td>
+                {{item.name}}
+            </td>
+            <td>
+                {{item.amount | currencyConvertBAHT}}
+            </td>
+            <td>
+                {{item.datepaid}}
+            </td>
 
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Token</th>
-    <th>Share</th>
-  </tr>
-{% for item in contentarray._proptery_owners %}
+        </tr>
+        {%  endfor %}
+        </tbody>
+                <tfoot>
+            <tr>
+                <th colspan="3" style="text-align:right">
+                    Total Distributions:
+                </th>
+                <th>
+                    {{  totaldist  | currencyConvertBAHT }}
+                </th>
+            </tr>
+            <tr>
+                 <th colspan="3" style="text-align:right">
+                    Total Left:
+                </th>
+                <th>
+                    {{ totalcost | currencyConvertBAHT }}
+                
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
 
-  <tr>
-    <td>{{ item.name }}</td>
-    <td>{{ item.email}}</td>
-    <td>{{ item.token_amount }}</td>
-    <td>{{ item.token_amount / contentarray.Property_local_cost * 100}}</td>
-  </tr>
-{% endfor %}
-</table >
-<br>
-<br>
-<h1> Paid In</h1>
-<table class="table"> 
-  <tr>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Amount</th>
-    <th>Date</th>
-    <th>Total</th>
-</tr>
-{%  set totalrent = 0 %}
-{% for item in contentarray._rental_agreements.rental_payments %}
-
-  <tr>
-    <td>Rental Payment</td>
-    <td>rent</td>
-    <td>
-    {%  if item.currency == "3" %}
-     {{ item.amount | currencyConvertBAHT}}
-    {% endif %}</td>
-    <td>{{ item.payment_date }}</td>
-    <td></td>
-  </tr>
-  {% set totalrent = totalrent+item.amount %}
-
-{% endfor %}
-
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>{{ totalrent }}</td>
-  </tr>
-</table>
-
-<h1>Paid out</h1>
-
-<table class="table">
-  <tr>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Amount</th>
-    <th>Date</th>
-    <th>Total</th>
-  </tr>
-{%  set totalcost = 0 %}
-{% for item in contentarray._rental_agreements.rental_costs %}
-
-  <tr>
-    <td>Rental Cost</td>
-    <td>{{ item.description}}</td>
-    <td>
-    {%  if item.currency == "3" %}
-      {{ item.amount | currencyConvertBAHT}}
-    {% endif %}</td>
-    <td>{{ item.date }}</td>
-    <td></td>
-  </tr>
-  {% set totalcost = totalcost+item.amount %}
-
-{% endfor %}
-
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>{{ totalcost }}</td>
-  </tr>
-
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Total Profit</td>
-    <td>{{  totalrent - totalcost }}</td>
-  </tr>
-  </table>
-
-      <h1>Distributions</h1>
-
-
-<table class="table">
-  <tr>
-    <th>Payment to</th>
-    <th>Description</th>
-    <th>Amount</th>
-    <th>Date</th>
-    <th></th>
-  </tr>
-  {% set totalcost =  totalrent - totalcost %}
-  {% set totaldist =  0 %}
-
-  {% for item in contentarray._owner_payments %}
-      {% set totalcost = totalcost-item.amount %}
-      {% set totaldist = totaldist+item.amount %}
-
-  <tr>
-    <td>{{item.proptery_owner.name}}</td>
-    <td>{{item.name}}</td>
-    <td>{{item.amount | currencyConvertBAHT}}</td>
-    <td>{{item.datepaid}}</td>
-    <td></td>
-  </tr>
-
-  {%  endfor %}
-
-
-
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Total Distributions </td>
-    <td>{{ totaldist }}</td>
-  </tr>
-
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Total Left </td>
-    <td>{{ totalcost }}</td>
-  </tr>
-
-
-
-
-
-</table>
