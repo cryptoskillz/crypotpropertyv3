@@ -30,6 +30,26 @@ module.exports = function(eleventyConfig) {
     "robots.txt": "robots.txt"
   });
 
+  eleventyConfig.addFilter("currencyConvertUSD",function (code){
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2
+    })
+
+  })
+
+
+  eleventyConfig.addFilter("currencyConvertBAHT",function (code){
+      const formatter = new Intl.NumberFormat('th-TH', {
+        style: 'currency',
+        currency: 'THB',
+        minimumFractionDigits: 2
+      })
+      let currency = formatter.format(code)
+      return(currency)
+  })
+
   eleventyConfig.addFilter("jsmin", function (code) {
     let minified = Terser.minify(code);
     if (minified.error) {
